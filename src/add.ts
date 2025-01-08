@@ -9,12 +9,21 @@ export function add(value: string): number {
     throw new Error("At least two numbers are required for addition");
   }
 
+  const negativeNumbers = [];
   let sum = 0;
 
   for (let i = 0; i < numbers.length; i++) {
     let number = numbers[i];
 
+    if (number < 0) {
+      negativeNumbers.push(number);
+    }
+
     sum += number;
+  }
+
+  if (negativeNumbers.length) {
+    throw new Error(`Negatives not allowed: ${negativeNumbers.join(",")}`);
   }
 
   return sum;
