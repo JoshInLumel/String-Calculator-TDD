@@ -1,7 +1,7 @@
 export function add(value: string): number {
   if (!value.length) return 0;
 
-  const result = value.match(/\d+(\.\d+)?/g);
+  const result = value.match(/-?\d+(\.\d+)?/g);
 
   const numbers = result ? result.map(Number) : [];
 
@@ -19,7 +19,7 @@ export function add(value: string): number {
       negativeNumbers.push(number);
     }
 
-    sum += number;
+    sum += number > 1000 ? 0 : number;
   }
 
   if (negativeNumbers.length) {

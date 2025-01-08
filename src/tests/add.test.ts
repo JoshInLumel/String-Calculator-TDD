@@ -17,4 +17,7 @@ describe("Add Operation", () => {
       `"Negatives not allowed: -7,-5,-1"`
     );
   });
+  test("assumes numbers greater than thousand as zero in a given string", () => {
+    expect(add("2%%%1001")).toBe(2);
+  });
 });
